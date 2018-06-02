@@ -41,7 +41,7 @@ def subprocess_check_output(command):
     """ Function description.
         :type command: string
     """
-    
+
     return subprocess.check_output(command.strip().split(' '))
 
 @contract
@@ -59,9 +59,17 @@ def bytes_to_readable(blocks):
     labels = ['B', 'Kb', 'Mb', 'Gb', 'Tb']
     return '{:.2f}{}'.format(round(byts/(1024.0**count), 2), labels[count])
 
-
+@contract
 def print_tree(file_tree, file_tree_node, path, largest_size, total_size,
                depth=0):
+    """ Function description.
+        :type file_tree: dict
+        :type file_tree_node: dict
+        :type path: string
+        :type largest_size: int
+        :type total_size: int
+        :type depth: int
+    """
     percentage = int(file_tree_node['size'] / float(total_size) * 100)
 
     if percentage < args.hide:
