@@ -7,6 +7,7 @@ import argparse
 import os
 import subprocess
 import re
+from contracts import contract
 
 
 # ==== Arguments ====
@@ -39,8 +40,12 @@ args = parser.parse_args()
 def subprocess_check_output(command):
     return subprocess.check_output(command.strip().split(' '))
 
-
+@contract
 def bytes_to_readable(blocks):
+    """ Function description.
+        :type blocks: int
+    """
+    print(type(blocks))
     byts = blocks * 512
     readable_bytes = byts
     count = 0
