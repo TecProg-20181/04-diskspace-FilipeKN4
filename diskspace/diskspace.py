@@ -87,8 +87,13 @@ def print_tree(file_tree, file_tree_node, path, largest_size, total_size,
             print_tree(file_tree, file_tree[child], child, largest_size,
                        total_size, depth + 1)
 
-
+@contract
 def show_space_list(directory='.', depth=-1, order=True):
+    """ Function description.
+        :type directory: string
+        :type depth: int
+        :type order: bool
+    """
     abs_directory = os.path.abspath(directory)
 
     cmd = 'du '
